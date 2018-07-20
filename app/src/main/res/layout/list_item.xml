@@ -1,57 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/text_container"
-    style="@style/ListItem"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_vertical"
-    android:orientation="horizontal">
-
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/magnitude"
-        android:layout_width="@dimen/list_item_width"
-        android:layout_height="@dimen/list_item_height"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:textAlignment="center"
-        android:textSize="28sp"
-        tools:text="0.0" />
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/magnitude_circle"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        tools:text="8.9" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/distance"
+        android:layout_marginLeft="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="77kn NW" />
 
-            <TextView
-                android:id="@+id/location"
-                style="@style/TextMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Location" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="San Francisco, CA" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/date"
-                style="@style/TextMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Date" />
-        </LinearLayout>
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="Mar 6, 2010" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="3:00 PM" />
+
 </LinearLayout>

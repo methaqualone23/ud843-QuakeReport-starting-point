@@ -1,11 +1,11 @@
 package com.example.android.quakereport;
 
 public class Earthquake {
-    private String magnitude;
+    private double magnitude;
     private String location;
-    private String date;
+    private long date;
 
-    public String getMagnitude() {
+    public double getMagnitude() {
         return magnitude;
     }
 
@@ -13,11 +13,11 @@ public class Earthquake {
         return location;
     }
 
-    public String getDate(){
+    public long getDate(){
         return date;
     }
 
-    public Earthquake(String magnitudeBase, String locationBase, String dateBase) {
+    public Earthquake(double magnitudeBase, String locationBase, long dateBase) {
         magnitude = magnitudeBase;
         location = locationBase;
         date = dateBase;
