@@ -15,10 +15,11 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
-    public EarthquakeAdapter(Context context, ArrayList<Earthquake> earthquakes) {
+    public EarthquakeAdapter(Context context, List<Earthquake> earthquakes) {
         super(context, 0, earthquakes);
     }
 
@@ -39,6 +40,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         String magnitude = formatter.format(currentEarthquake.getMagnitude());
         magnitudeView.setText(magnitude);
 
+        String webLink = currentEarthquake.getUrl();
         // Set the proper background color on the magnitude circle.
         // Fetch the background from the TextView, which is a GradientDrawable.
         GradientDrawable magnitudeCircle = (GradientDrawable) magnitudeView.getBackground();
@@ -50,7 +52,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         magnitudeCircle.setColor(magnitudeColor);
 
 
-        String locationString = currentEarthquake.getLocation().toString();
+        String locationString = currentEarthquake.getLocation();
         String[] parts = locationString.split(Pattern.quote(","));
         if (locationString.contains(",")) {
             String part1 = parts[0];
