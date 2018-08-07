@@ -41,9 +41,6 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
 
         currentAdapter = new EarthquakeAdapter(this, new ArrayList<Earthquake>());
         earthquakeListView.setAdapter(currentAdapter);
-
-        LoaderManager loaderManager = getLoaderManager();
-        loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this);
         Log.v("VERIFY_INIT_LOADER", "Loader initialized");
 
         earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -55,8 +52,19 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
                 startActivity(webBrowser);
             }
         });
-    }
 
+        ConnectivityManager connectionManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkStatus = connectionManager.getActiveNetworkInfo();
+
+        if (networkStatus != null && networkStatus.isConnected()) {
+            LoaderManager loaderManager = getLoaderManager();
+            loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this);
+        } else {
+            ProgressBar progress = findViewById(R.id.progressbar);
+            progress.setVisibility(View.GONE);
+            emptyPlaceholder.setText(R.string.no_connection);
+        }
+    }
 
     @Override
     public Loader<List<Earthquake>> onCreateLoader(int i, Bundle bundle) {
@@ -84,6 +92,9 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         Log.v("VERIFY_ONRESET_LOADER", "Loader reset");
         currentAdapter.clear();
     }
+
+
+
 }
 
 
