@@ -20,6 +20,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 
+/**
+ * Helper methods related to requesting and receiving earthquake data from USGS.
+ */
 public final class QueryUtils {
 
     /** Tag for the log messages */
@@ -42,11 +45,6 @@ public final class QueryUtils {
 
         // Perform HTTP request to the URL and receive a JSON response back
         String jsonResponse = null;
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
